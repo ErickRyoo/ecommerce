@@ -1,0 +1,140 @@
+@use "abstract/mixins" as *;
+@use "base/typography" as *;
+@use "base/colors" as c;
+
+.product {
+  &__container {
+    @include container($width: calc(23.4375em - 2em));
+    margin: 1.5em auto 7em;
+    @include mq($width: $largescreen) {
+      @include container($width: 27.6875em);
+      margin: 4em auto;
+    }
+  }
+
+  &__brand {
+    font-size: 0.95rem;
+    color: c.$orange;
+    margin: 0 0 1em;
+  }
+
+  &__name {
+    font-size: 2rem;
+    font-weight: $fw-bold;
+    margin: 0 0 1em;
+    color: c.$veryDarkBlue;
+    @include mq($width: $largescreen) {
+      font-size: 2.75rem;
+    }
+  }
+
+  &__info {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: c.$darkGrayishBlue;
+    margin: 0 0 2.5em;
+  }
+
+  &__pricing {
+    display: flex;
+    align-items: center;
+    margin: 0 0 2em;
+    @include mq($width: $largescreen) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__discountedPrice {
+    font-size: 2rem;
+    font-weight: $fw-bold;
+    margin-right: 0.5em;
+  }
+
+  &__discount {
+    font-weight: $fw-bold;
+    color: c.$orange;
+    background-color: c.$paleOrange;
+    border-radius: 0.3125em;
+    margin-right: 6.625em;
+    padding: 0.25em 0.5em;
+    @include mq($width: $largescreen) {
+      margin-right: 0;
+    }
+  }
+
+  &__originalPrice {
+    font-weight: $fw-bold;
+    color: c.$grayishBlue;
+    text-decoration: line-through;
+    @include mq($width: $largescreen) {
+      width: 100%;
+      margin-top: 1em;
+    }
+  }
+
+  &__quantityConfirmationContainer {
+    @include mq($width: $largescreen) {
+      display: flex;
+    }
+  }
+
+  &__counter { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: c.$lightGrayishBlue;
+    border-radius: 0.625em;
+    padding: 1.25em 1.5em;
+    @include mq($width: $largescreen) {
+      width: 8em;
+      margin-right: 1em;
+    }
+  }
+
+  &__count {
+    font-weight: $fw-bold;
+  }
+
+  &__countBtn {
+    fill: c.$orange;
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+
+  &__plus {
+    padding: 0.25em 0;
+  }
+
+  &__minus {
+    padding: 0.5em 0;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 21.4375em;
+    color: c.$white;
+    background-color: c.$orange;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 1em auto;
+    padding: 1.25em 0;
+    &:hover {
+      opacity: 0.75;
+    }
+    @include mq($width: $largescreen) {
+      width: 17.6875em;
+      margin: 0;
+    }
+  }
+
+  &__btnIcon {
+    fill: c.$white;
+    margin-right: 1em;
+  }
+}

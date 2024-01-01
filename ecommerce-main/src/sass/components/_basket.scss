@@ -1,0 +1,106 @@
+@use "abstract/mixins" as *;
+@use "base/typography" as *;
+@use "base/colors" as c;
+
+//z-index-20
+
+.basket {
+  position: absolute;
+  top: 6.5em;
+  width: calc(23.4375em - 1em);
+  background-color: c.$white;
+  border-radius: 0.625em;
+  z-index: 20;
+  @include mq($width: $largescreen) {
+    width: 23.4375em;
+    top: 5em;
+    right: -4.75em;
+    box-shadow: 0 15px 40px -15px c.$lightBlack;
+  }
+  @include mq($width: 90em) {
+    right: -6em;
+  }
+
+  &__title {
+    color: c.$veryDarkBlue;
+    font-size: 1rem;
+    font-weight: $fw-bold;
+    padding: 1.5em;
+    margin: 0;
+  }
+
+  &__empty {
+    display: flex;
+    justify-content: center;
+    color: c.$darkGrayishBlue;
+    font-size: 1rem;
+    font-weight: $fw-bold;
+    border-top: 2px solid c.$grayishBlue;
+    padding: 5em 0;
+    margin: 0;
+    @include mq($width: $largescreen) {
+      padding: 4.5em 0;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    color: c.$darkGrayishBlue;
+    font-size: 1rem;
+    border-top: 2px solid c.$grayishBlue;
+    padding: 1.5em;
+  }
+
+  &__image {
+    width: 3em;
+    height: 3em;
+    border-radius: 5px;
+  }
+
+  &__info {
+    margin: 0 1em 0.25em;
+  }
+
+  &__product {
+    width: 14.5em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0 0 0.5em;
+  }
+
+  &__totalPrice {
+    margin-left: 0.5em;
+    font-weight: $fw-bold;
+    color: c.$veryDarkBlue;
+  }
+
+  &__removeBtn {
+    fill: c.$grayishBlue;
+    &:hover {
+      fill: c.$veryDarkBlue;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    width: 19.5em;
+    background-color: c.$orange;
+    color: c.$white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: $fw-bold;
+    cursor: pointer;
+    margin: 0 1.5em 2em;
+    padding: 1.25em 0;
+    &:hover {
+      opacity: 0.75;
+    }
+    @include mq($width: $largescreen) {
+      width: 20.5em;
+    }
+  }
+}
